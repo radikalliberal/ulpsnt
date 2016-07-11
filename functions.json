@@ -1,0 +1,916 @@
+{
+    "abs": {
+        "variants": [{
+            "syntax": "abs(real|int|char x)",
+            "returntype": "real|int|char",
+            "returns": "returns the absolute value of x",
+            "description": ""
+        }]
+    },
+    "acos": {
+        "variants": [{
+            "syntax": "acos(real x)",
+            "returntype": "real",
+            "returns": "returns the arc cosine of x.",
+            "description": "Angles are given in radian."
+        }]
+    },
+    "asin": {
+        "variants": [{
+            "syntax": "asin(real x)",
+            "returntype": "real",
+            "returns": "returns the arc sine of x.",
+            "description": "Angles are given in radian."
+        }]
+    },
+    "atan": {
+        "variants": [{
+            "syntax": "atan(real x)",
+            "returntype": "real",
+            "returns": "returns the arc tangent of x.",
+            "description": "Angles are given in radian."
+        }]
+    },
+    "ceil": {
+        "variants": [{
+            "syntax": "ceil(real x)",
+            "returntype": "real",
+            "returns": "returns the smallest integer not less than x",
+            "description": ""
+        }]
+    },
+    "cfgget": {
+        "variants": [{
+            "syntax": "cfgget(string name)",
+            "returntype": "string",
+            "returns": "cfgget returns the value of the parameter stored under the given name. If no such parameter has been stored, yet, the value of the optional default is returned (or an empty string, if no default is given)",
+            "description": "The cfgget function retrieves values that have previously been stored with a call to cfgset(). The valid characters for name are 'A'-'Z', 'a'-'z', '0'-'9', '.' and '_'. Parameter names are case sensitive. The parameters are stored in the user's eaglerc file. To ensure that different User Language Programs don't overwrite each other's parameters in case they use the same parameter names, it is recommended to put the name of the ULP at the beginning of the parameter name. For example, a ULP named mytool.ulp that uses a parameter named MyParam could store that parameter under the name mytool.MyParam. Because the configuration parameters are stored in the eaglerc file, which also contains all of EAGLE's other user specific parameters, it is also possible to access the EAGLE parameters with cfgget() and cfgset(). In order to make sure no ULP parameters collide with any EAGLE parameters, the EAGLE parameters must be prefixed with \"EAGLE:\" , as in EAGLE:Option.XrefLabelFormat. Note that there is no documentation of all of EAGLE's internal parameters and how they are stored in the eaglerc file. Also, be very careful when changing any of these parameters! As with the eaglerc file itself, you should only manipulate these parameters if you know what you are doing! Some EAGLE parameters may require a restart of EAGLE for changes to take effect. In the eaglerc file the User Language parameters are stored with the prefix \"ULP:\". Therefore this prefix may be optionally put in front of User Language parameter names, as in ULP:mytool.MyParam"
+        }, {
+            "syntax": "cfgget(string name, string default)",
+            "returntype": "string",
+            "returns": "cfgget returns the value of the parameter stored under the given name. If no such parameter has been stored, yet, the value of the optional default is returned (or an empty string, if no default is given)",
+            "description": "The cfgget function retrieves values that have previously been stored with a call to cfgset(). The valid characters for name are A-Z, a-z, 0-9, . and _. Parameter names are case sensitive. The parameters are stored in the users eaglerc file. To ensure that different User Language Programs dont overwrite each others parameters in case they use the same parameter names, it is recommended to put the name of the ULP at the beginning of the parameter name. For example, a ULP named mytool.ulp that uses a parameter named MyParam could store that parameter under the name mytool.MyParam. Because the configuration parameters are stored in the eaglerc file, which also contains all of EAGLEs other user specific parameters, it is also possible to access the EAGLE parameters with cfgget() and cfgset(). In order to make sure no ULP parameters collide with any EAGLE parameters, the EAGLE parameters must be prefixed with \"EAGLE:\" , as in EAGLE:Option.XrefLabelFormat. Note that there is no documentation of all of EAGLEs internal parameters and how they are stored in the eaglerc file. Also, be very careful when changing any of these parameters! As with the eaglerc file itself, you should only manipulate these parameters if you know what you are doing! Some EAGLE parameters may require a restart of EAGLE for changes to take effect. In the eaglerc file the User Language parameters are stored with the prefix \"ULP:\". Therefore this prefix may be optionally put in front of User Language parameter names, as in ULP:mytool.MyParam"
+
+
+        }]
+    },
+    "cfgset cfgset(string name, string value)": {
+        "variants": [{
+            "syntax": "cfgset(string name, string value)",
+            "returntype": "void",
+            "returns": "",
+            "description": "The cfgset function sets the parameter with the given name to the given value. The valid characters for name are 'A'-'Z', 'a'-'z', '0'-'9', '.' and '_'. Parameter names are case sensitive. The parameters are stored in the user's eaglerc file. To ensure that different User Language Programs don't overwrite each other's parameters in case they use the same parameter names, it is recommended to put the name of the ULP at the beginning of the parameter name. For example, a ULP named mytool.ulp that uses a parameter named MyParam could store that parameter under the name mytool.MyParam. Because the configuration parameters are stored in the eaglerc file, which also contains all of EAGLE's other user specific parameters, it is also possible to access the EAGLE parameters with cfgget() and cfgset(). In order to make sure no ULP parameters collide with any EAGLE parameters, the EAGLE parameters must be prefixed with \"EAGLE:\" , as in EAGLE:Option.XrefLabelFormat. Note that there is no documentation of all of EAGLE's internal parameters and how they are stored in the eaglerc file. Also, be very careful when changing any of these parameters! As with the eaglerc file itself, you should only manipulate these parameters if you know what you are doing! Some EAGLE parameters may require a restart of EAGLE for changes to take effect. In the eaglerc file the User Language parameters are stored with the prefix \"ULP:\". Therefore this prefix may be optionally put in front of User Language parameter names, as in ULP:mytool.MyParam"
+        }]
+    },
+    "clrgroup": {
+        "variants": [{
+            "syntax": "clrgroup(object)",
+            "returntype": "void",
+            "returns": "",
+            "description": "The clrgroup() function clears the group flags of the given object, so that it is no longer part of the previously defined group. When applied to an object that contains other objects (like a UL_BOARD or UL_NET) the group flags of all contained objects are cleared recursively, but with analogous limitations like for setgroup()."
+        }]
+    },
+    "country": {
+        "variants": [{
+            "syntax": "country()",
+            "returntype": "string",
+            "returns": "Returns the country code of the system in use.",
+            "description": "country returns a string consisting of two uppercase characters that identifies the country used on the current system. If no such country setting can be determined, the default \"US\" will be returned."
+        }]
+    },
+    "cos": {
+        "variants": [{
+            "syntax": "cos(real x)",
+            "returntype": "real",
+            "returns": "returns the cosine of x.",
+            "description": "Angles are given in radian."
+        }]
+    },
+    "exit": {
+        "variants": [{
+            "syntax": "exit(int result)",
+            "returntype": "void",
+            "returns": "",
+            "description": "The exit function terminates execution of a User Language Program.\nIf an integer result is given it will be used as the return value of the program.\nIf a string command is given, that command will be executed as if it were entered into the command line immediately after the RUN command. In that case the return value of the ULP is set to EXIT_SUCCESS. "
+        }, {
+            "syntax": "exit(string Command)",
+            "returntype": "void",
+            "returns": "",
+            "description": "The exit function terminates execution of a User Language Program.\nIf an integer result is given it will be used as the return value of the program.\nIf a string command is given, that command will be executed as if it were entered into the command line immediately after the RUN command. In that case the return value of the ULP is set to EXIT_SUCCESS. "
+
+
+        }]
+    },
+    "exp": {
+        "variants": [{
+            "syntax": "exp(real x)",
+            "returntype": "real",
+            "returns": "returns the exponential e to the power of x",
+            "description": ""
+        }]
+    },
+    "fdlsignature": {
+        "variants": [{
+            "syntax": "fdlsignature(string s, string key)",
+            "returntype": "string",
+            "returns": "Calculates a digital signature for Premier Farnell's Design Link.",
+            "description": "The fdlsignature function is used to calculate a digital signature when accessing Premier Farnell's Design Link interface"
+        }]
+    },
+    "filedir": {
+        "variants": [{
+            "syntax": "filedir(string file)",
+            "returntype": "string",
+            "returns": "returns the directory of file (including the drive letter under Windows)",
+            "description": ""
+        }]
+    },
+    "fileerror": {
+        "variants": [{
+            "syntax": "fileerror()",
+            "returntype": "int",
+            "returns": "Returns the status of I/O operations",
+            "description": "fileerror checks the status of any I/O operations that have been performed since the last call to this function and returns 0 if everything was ok. If any of the I/O operations has caused an error, a value other than 0 will be returned. \nYou should call fileerror before any I/O operations to reset any previous error state, and call it again after the I/O operations to see if they were successful. \nWhen fileerror returns a value other than 0 (thus indicating an error) a proper error message has already been given to the user. "
+        }]
+    },
+    "fileext": {
+        "variants": [{
+            "syntax": "fileext(string file)",
+            "returntype": "string",
+            "returns": "returns the extension of file",
+            "description": ""
+        }]
+    },
+    "fileglob": {
+        "variants": [{
+            "syntax": "fileglob(string &array[], string pattern)",
+            "returntype": "int",
+            "returns": "The fileglob function returns the number of entries copied into array. \n",
+            "description": "fileglob performs a directory search using pattern. \npattern may contain '*' and '?' as wildcard characters. If pattern ends with a '/', the contents of the given directory will be returned. \nNames in the resulting array that end with a '/' are directory names. \nThe array is sorted alphabetically, with the directories coming first. \nThe special entries '.' and '..' (for the current and parent directories) are never returned in the array. \nIf pattern doesn't match, or if you don't have permission to search the given directory, the resulting array will be empty. \nNote for Windows users\n?\nThe directory delimiter in the array is always a forward slash. This makes sure User Language Programs will work platform independently. In the pattern the backslash ('\\') is also treated as a directory delimiter. \nSorting filenames under Windows is done case insensitively. \n"
+        }]
+    },
+    "filename": {
+        "variants": [{
+            "syntax": "filename(string file)",
+            "returntype": "string",
+            "returns": "returns the file name of file (including the extension)",
+            "description": ""
+        }]
+    },
+    "fileread": {
+        "variants": [{
+            "syntax": "fileread(dest, string file)",
+            "returntype": "int",
+            "returns": "fileread returns the number of objects read from the file.\nThe actual meaning of the return value depends on the type of dest. ",
+            "description": ""
+        }]
+    },
+    "filesetext": {
+        "variants": [{
+            "syntax": "filesetext(string file, string newext)",
+            "returntype": "string",
+            "returns": "returns file with the extension set to newext",
+            "description": ""
+        }]
+    },
+    "filesize": {
+        "variants": [{
+            "syntax": "returns file with the extension set to newext",
+            "returntype": "int",
+            "returns": "returns the size (in byte) of the given file",
+            "description": ""
+        }]
+    },
+    "filetime": {
+        "variants": [{
+            "syntax": "filetime(string filename)",
+            "returntype": "int",
+            "returns": "returns the timestamp of the given file in a format to be used with the time functions",
+            "description": ""
+        }]
+    },
+    "floor": {
+        "variants": [{
+            "syntax": "floor(real x)",
+            "returntype": "real",
+            "returns": "returns the largest integer not greater than x",
+            "description": ""
+        }]
+    },
+    "frac": {
+        "variants": [{
+            "syntax": "frac(real x)",
+            "returntype": "real",
+            "returns": "returns the fractional part of x",
+            "description": ""
+        }]
+    },
+    "inch2u": {
+        "variants": [{
+            "syntax": "inch2u(real n)",
+            "returntype": "int",
+            "returns": "returns the value of n (which is in inch) as internal units.",
+            "description": ""
+        }]
+    },
+    "ingroup": {
+        "variants": [{
+            "syntax": "ingroup(object)",
+            "returntype": "int",
+            "returns": "The ingroup function returns a non-zero value if the given object is in the group.",
+            "description": "If a group has been defined in the editor, the ingroup() function can be used to check whether a particular object is part of the group. \nObjects with a single coordinate that are individually selectable in the current drawing (like UL_TEXT, UL_VIA, UL_CIRCLE etc.) return a non-zero value in a call to ingroup() if that coordinate is within the defined group. \nA UL_WIRE returns 0, 1, 2 or 3, depending on whether none, the first, the second or both of its end points are in the group. \nA UL_RECTANGLE and UL_FRAME returns a non-zero value if one or more of its corners are in the group. The value has bit 0 set for the upper right corner, bit 1 for the upper left, bit 2 for the bottom left, and bit 3 for the bottom right corner. \nHigher ranking objects that have no coordinates (UL_NET, UL_SEGMENT, UL_SIGNAL, UL_POLYGON) or that are actually not available as drawing objects (UL_SHEET, UL_DEVICESET, UL_SYMBOL, UL_PACKAGE), return a non-zero value if one or more of the objects within them are in the group. For details on the object hierarchies see Object Types. \nUL_CONTACTREF and UL_PINREF, though not having coordinates of their own, return a non-zero value if the referenced UL_CONTACT or UL_PIN, respectively, is within the group. \nFor other not selectable objects like UL_GRID, UL_VARIANT or wires of a UL_TEXT or UL_FRAME object, the behaviour of ingroup() is undefined and therefore should not be used. "
+        }]
+    },
+    "isalnum": {
+        "variants": [{
+            "syntax": "isalnum(char c)",
+            "returntype": "int",
+            "returns": "The isalnum functions return nonzero if the given character falls into the category, zero otherwise.",
+            "description": "letters (A to Z or a to z) or digits (0 to 9)"
+        }]
+    },
+    "isalpha": {
+        "variants": [{
+            "syntax": "isalpha(char c)",
+            "returntype": "int",
+            "returns": "The isalpha functions return nonzero if the given character falls into the category, zero otherwise.",
+            "description": "letters (A to Z or a to z)"
+        }]
+    },
+    "iscntrl": {
+        "variants": [{
+            "syntax": "iscntrl(char c)",
+            "returntype": "int",
+            "returns": "The iscntrl functions return nonzero if the given character falls into the category, zero otherwise.",
+            "description": "delete characters or ordinary control characters (0x7F or 0x00 to 0x1F)"
+        }]
+    },
+    "isdigit": {
+        "variants": [{
+            "syntax": "isdigit(char c)",
+            "returntype": "int",
+            "returns": "The isdigit functions return nonzero if the given character falls into the category, zero otherwise.",
+            "description": "digits (0 to 9)"
+        }]
+    },
+    "isgraph": {
+        "variants": [{
+            "syntax": "isgraph(char c)",
+            "returntype": "int",
+            "returns": "The isgraph functions return nonzero if the given character falls into the category, zero otherwise.",
+            "description": "printing characters (except space)"
+        }]
+    },
+    "islower": {
+        "variants": [{
+            "syntax": "islower(char c)",
+            "returntype": "int",
+            "returns": "The islower functions return nonzero if the given character falls into the category, zero otherwise.",
+            "description": "lowercase letters (a to z)"
+        }]
+    },
+    "isprint": {
+        "variants": [{
+            "syntax": "isprint(char c)",
+            "returntype": "int",
+            "returns": "The isprint functions return nonzero if the given character falls into the category, zero otherwise.",
+            "description": "printing characters (0x20 to 0x7E)"
+        }]
+    },
+    "ispunct": {
+        "variants": [{
+            "syntax": "ispunct(char c)",
+            "returntype": "int",
+            "returns": "The ispunct functions return nonzero if the given character falls into the category, zero otherwise.",
+            "description": "punctuation characters (iscntrl or isspace)"
+        }]
+    },
+    "isspace": {
+        "variants": [{
+            "syntax": "isspace(char c)",
+            "returntype": "int",
+            "returns": "The isspace functions return nonzero if the given character falls into the category, zero otherwise.",
+            "description": "space, tab, carriage return, new line, vertical tab, or formfeed (0x09 to 0x0D, 0x20)"
+        }]
+    },
+    "isupper": {
+        "variants": [{
+            "syntax": "isupper(char c)",
+            "returntype": "int",
+            "returns": "The isupper functions return nonzero if the given character falls into the category, zero otherwise.",
+            "description": "uppercase letters (A to Z)"
+        }]
+    },
+    "isxdigit": {
+        "variants": [{
+            "syntax": "isxdigit(char c)",
+            "returntype": "int",
+            "returns": "The isxdigit functions return nonzero if the given character falls into the category, zero otherwise.",
+            "description": "hex digits (0 to 9, A to F, a to f)"
+        }]
+    },
+    "language": {
+        "variants": [{
+            "syntax": "language()",
+            "returntype": "string",
+            "returns": "language returns a string consisting of two lowercase characters that identifies the language used on the current system. If no such language setting can be determined, the default \"en\" will be returned",
+            "description": "The language function can be used to make a ULP use different message string, depending on which language the current system is using. \nIn the example below all the strings used in the ULP are listed in the string array I18N[], preceeded by a string containing the various language codes supported by this ULP. Note the vtab characters used to separate the individual parts of each string (they are important for the lookup function) and the use of the commas to separate the strings. The actual work is done in the function tr(), which returns the translated version of the given string. If the original string can't be found in the I18N array, or there is no translation for the current language, the original string will be used untranslated. \nThe first language defined in the I18N array must be the one in which the strings used throughout the ULP are written, and should generally be English in order to make the program accessible to the largest number of users. "
+        }]
+    },
+    "log": {
+        "variants": [{
+            "syntax": "log(real x)",
+            "returntype": "real",
+            "returns": "returns the natural logarithm of x",
+            "description": ""
+        }]
+    },
+    "log10": {
+        "variants": [{
+            "syntax": "log10(real x)",
+            "returntype": "real",
+            "returns": "returns the base 10 logarithm of x",
+            "description": ""
+        }]
+    },
+    "lookup": {
+        "variants": [{
+            "syntax": "lookup(string array[], string key, int field_index)",
+            "returntype": "string",
+            "returns": "lookup returns the value of the field identified by field_index or field_name.\nIf the field doesn't exist, or no string matching key is found, an empty string is returned",
+            "description": "An array that can be used with lookup() consists of strings of text, each string representing one data record. \nEach data record contains an arbitrary number of fields, which are separated by the character separator (default is '\\t', the tabulator). The first field in a record is used as the key and is numbered 0. \nAll records must have unique key fields and none of the key fields may be empty - otherwise it is undefined which record will be found. \nIf the first string in the array contains a \"Header\" record (i.e. a record where each field describes its contents), using lookup with a field_name string automatically determines the index of that field. This allows using the lookup function without exactly knowing which field index contains the desired data.\nIt is up to the user to make sure that the first record actually contains header information. \nIf the key parameter in the call to lookup() is an empty string, the first string of the array will be used. This allows a program to determine whether there is a header record with the required field names. \nIf a field contains the separator character, that field must be enclosed in double quotes (as in \"abc;def\", assuming the semicolon (';') is used as separator). The same applies if the field contains double quotes (\"), in which case the double quotes inside the field have to be doubled (as in \"abc;\"\"def\"\";ghi\" , which would be abc;\"def\";ghi).\nIt is best to use the default \"tab\" separator, which doesn't have these problems (no field can contain a tabulator). \nHere's an example data file (';' has been used as separator for better readability): "
+        }, {
+            "syntax": "lookup(string array[], string key, int field_index, char separator)",
+            "returntype": "string",
+            "returns": "lookup returns the value of the field identified by field_index or field_name.\nIf the field doesn't exist, or no string matching key is found, an empty string is returned",
+            "description": "An array that can be used with lookup() consists of strings of text, each string representing one data record. \nEach data record contains an arbitrary number of fields, which are separated by the character separator (default is '\\t', the tabulator). The first field in a record is used as the key and is numbered 0. \nAll records must have unique key fields and none of the key fields may be empty - otherwise it is undefined which record will be found. \nIf the first string in the array contains a \"Header\" record (i.e. a record where each field describes its contents), using lookup with a field_name string automatically determines the index of that field. This allows using the lookup function without exactly knowing which field index contains the desired data.\nIt is up to the user to make sure that the first record actually contains header information. \nIf the key parameter in the call to lookup() is an empty string, the first string of the array will be used. This allows a program to determine whether there is a header record with the required field names. \nIf a field contains the separator character, that field must be enclosed in double quotes (as in \"abc;def\", assuming the semicolon (';') is used as separator). The same applies if the field contains double quotes (\"), in which case the double quotes inside the field have to be doubled (as in \"abc;\"\"def\"\";ghi\" , which would be abc;\"def\";ghi).\nIt is best to use the default \"tab\" separator, which doesn't have these problems (no field can contain a tabulator). \nHere's an example data file (';' has been used as separator for better readability): "
+        }, {
+            "syntax": "lookup(string array[], string key, string field_name)",
+            "returntype": "string",
+            "returns": "lookup returns the value of the field identified by field_index or field_name.\nIf the field doesn't exist, or no string matching key is found, an empty string is returned",
+            "description": "An array that can be used with lookup() consists of strings of text, each string representing one data record. \nEach data record contains an arbitrary number of fields, which are separated by the character separator (default is '\\t', the tabulator). The first field in a record is used as the key and is numbered 0. \nAll records must have unique key fields and none of the key fields may be empty - otherwise it is undefined which record will be found. \nIf the first string in the array contains a \"Header\" record (i.e. a record where each field describes its contents), using lookup with a field_name string automatically determines the index of that field. This allows using the lookup function without exactly knowing which field index contains the desired data.\nIt is up to the user to make sure that the first record actually contains header information. \nIf the key parameter in the call to lookup() is an empty string, the first string of the array will be used. This allows a program to determine whether there is a header record with the required field names. \nIf a field contains the separator character, that field must be enclosed in double quotes (as in \"abc;def\", assuming the semicolon (';') is used as separator). The same applies if the field contains double quotes (\"), in which case the double quotes inside the field have to be doubled (as in \"abc;\"\"def\"\";ghi\" , which would be abc;\"def\";ghi).\nIt is best to use the default \"tab\" separator, which doesn't have these problems (no field can contain a tabulator). \nHere's an example data file (';' has been used as separator for better readability): "
+        }, {
+            "syntax": "lookup(string array[], string key, string field_name, char separator)",
+            "returntype": "string",
+            "returns": "lookup returns the value of the field identified by field_index or field_name.\nIf the field doesn't exist, or no string matching key is found, an empty string is returned",
+            "description": "An array that can be used with lookup() consists of strings of text, each string representing one data record. \nEach data record contains an arbitrary number of fields, which are separated by the character separator (default is '\\t', the tabulator). The first field in a record is used as the key and is numbered 0. \nAll records must have unique key fields and none of the key fields may be empty - otherwise it is undefined which record will be found. \nIf the first string in the array contains a \"Header\" record (i.e. a record where each field describes its contents), using lookup with a field_name string automatically determines the index of that field. This allows using the lookup function without exactly knowing which field index contains the desired data.\nIt is up to the user to make sure that the first record actually contains header information. \nIf the key parameter in the call to lookup() is an empty string, the first string of the array will be used. This allows a program to determine whether there is a header record with the required field names. \nIf a field contains the separator character, that field must be enclosed in double quotes (as in \"abc;def\", assuming the semicolon (';') is used as separator). The same applies if the field contains double quotes (\"), in which case the double quotes inside the field have to be doubled (as in \"abc;\"\"def\"\";ghi\" , which would be abc;\"def\";ghi).\nIt is best to use the default \"tab\" separator, which doesn't have these problems (no field can contain a tabulator). \nHere's an example data file (';' has been used as separator for better readability): "
+        }]
+    },
+    "max": {
+        "variants": [{
+            "syntax": "max(char|int|real x, char|int|real y)",
+            "returntype": "char|int|real",
+            "returns": "returns the maximum of x and y",
+            "description": "The return type of these functions is the same as the (larger) type of the arguments. type must be one of char, int or real."
+        }]
+    },
+    "mic2u": {
+        "variants": [{
+            "syntax": "mic2u(real n)",
+            "returntype": "int",
+            "returns": "returns the value of n (which is in microns) as internal units.",
+            "description": "EAGLE stores all coordinate and size values as int values with a resolution of 1/320000mm (0.003125µ). The above unit conversion functions can be used to convert these internal units to the desired measurement units, and vice versa."
+        }]
+    },
+    "mil2u": {
+        "variants": [{
+            "syntax": "mil2u(real n)",
+            "returntype": "int",
+            "returns": "returns the value of n (which is in mil) as internal units",
+            "description": "EAGLE stores all coordinate and size values as int values with a resolution of 1/320000mm (0.003125µ). The above unit conversion functions can be used to convert these internal units to the desired measurement units, and vice versa."
+        }]
+    },
+    "min": {
+        "variants": [{
+            "syntax": "min(char|int|real x, char|int|real y)",
+            "returntype": "char|int|real",
+            "returns": "returns the minimum of x and y",
+            "description": "The return type of these functions is the same as the (larger) type of the arguments. type must be one of char, int or real."
+        }]
+    },
+    "mm2u": {
+        "variants": [{
+            "syntax": "mm2u(real n)",
+            "returntype": "int",
+            "returns": "returns the value of n (which is in millimeters) as internal units",
+            "description": "EAGLE stores all coordinate and size values as int values with a resolution of 1/320000mm (0.003125µ). The above unit conversion functions can be used to convert these internal units to the desired measurement units, and vice versa"
+        }]
+    },
+    "neterror": {
+        "variants": [{
+            "syntax": "neterror(void)",
+            "returntype": "string",
+            "returns": "returns a textual message describing the error that occurred in the most recent call to a network function.\nIf no error has occurred, the return value is an empty string",
+            "description": "The neterror function should be called after any of the other network functions has returned a negative value, indicating that an error has occurred. The return value of neterror is a textual string that can be presented to the user. \nFor errors related to SSL connections (HTTPS) also consider the note in netget. \n"
+        }]
+    },
+    "netget": {
+        "variants": [{
+            "syntax": "netget(dest, string url)",
+            "returntype": "int",
+            "returns": "returns the number of objects read from the network.\nThe actual meaning of the return value depends on the type of dest.\nIn case of an error, a negative value is returned and neterror() may be called to display an error message to the user. ",
+            "description": "he netget function sends the given url to the network and stores the result in the dest variable.\nIf no network activity has occurred for timeout seconds, the connection will be terminated. The default timeout is 20 seconds.\nThe url must contain the protocol to use (HTTP, HTTPS or FTP) and can contain name=value pairs of parameters, as in \nhttp://www.cadsoft.de/cgi-bin/http-test?see=me&hear=them\nftp://ftp.cadsoft.de/eagle/userfiles/README\nIf a user id and password is required to access a remote site, these can be given as \nhttps://userid:password@www.secret-site.com/...\nIf dest is a character array, the result will be treated as raw binary data and the return value reflects the number of bytes stored in the character array. \nIf dest is a string array, the result will be treated as text data (one line per array member) and the return value will be the number of lines stored in the string array. Newline characters will be stripped. \nIf dest is a string, the result will be stored in that string and the return value will be the length of the string. Note that in case of binary data the result is truncated at the first occurrence of a byte with the value 0x00. \nIf you need to use a proxy to access the Internet with HTTP or HTTPS, you can set that up in the \"Configure\" dialog under \"Help/Check for Update\" in the Control Panel. \nSSL Connections\nFor SSL connections (request per HTTPS) certificates are necessary, which may miss or be expired on some systems. The connection fails then with according error message that you can query with neterror().\nWith this error message it should be possible to install missing or update expired certificates and make the connection work this way. It depends on your system how to do this (in Windows e.g. via Control Panel/Internet Options etc.). "
+        }, {
+            "syntax": "netget(dest, string url, int timeout)",
+            "returntype": "int",
+            "returns": "returns the number of objects read from the network.\nThe actual meaning of the return value depends on the type of dest.\nIn case of an error, a negative value is returned and neterror() may be called to display an error message to the user. ",
+            "description": "he netget function sends the given url to the network and stores the result in the dest variable.\nIf no network activity has occurred for timeout seconds, the connection will be terminated. The default timeout is 20 seconds.\nThe url must contain the protocol to use (HTTP, HTTPS or FTP) and can contain name=value pairs of parameters, as in \nhttp://www.cadsoft.de/cgi-bin/http-test?see=me&hear=them\nftp://ftp.cadsoft.de/eagle/userfiles/README\nIf a user id and password is required to access a remote site, these can be given as \nhttps://userid:password@www.secret-site.com/...\nIf dest is a character array, the result will be treated as raw binary data and the return value reflects the number of bytes stored in the character array. \nIf dest is a string array, the result will be treated as text data (one line per array member) and the return value will be the number of lines stored in the string array. Newline characters will be stripped. \nIf dest is a string, the result will be stored in that string and the return value will be the length of the string. Note that in case of binary data the result is truncated at the first occurrence of a byte with the value 0x00. \nIf you need to use a proxy to access the Internet with HTTP or HTTPS, you can set that up in the \"Configure\" dialog under \"Help/Check for Update\" in the Control Panel. \nSSL Connections\nFor SSL connections (request per HTTPS) certificates are necessary, which may miss or be expired on some systems. The connection fails then with according error message that you can query with neterror().\nWith this error message it should be possible to install missing or update expired certificates and make the connection work this way. It depends on your system how to do this (in Windows e.g. via Control Panel/Internet Options etc.). "
+
+
+        }]
+    },
+    "netpost": {
+        "variants": [{
+            "syntax": "netpost(dest, string url, string data)",
+            "returntype": "int",
+            "returns": "returns the number of objects read from the network.\nThe actual meaning of the return value depends on the type of dest.\nIn case of an error, a negative value is returned and neterror() may be called to display an error message to the user. ",
+            "description": "The netpost function sends the given data to the given url on the network and stores the result in the dest variable.\nIf no network activity has occurred for timeout seconds, the connection will be terminated. The default timeout is 20 seconds.\nIf content_type is given, it overwrites the default content type of \"text/html; charset=utf-8\".\nThe url must contain the protocol to use (HTTP or HTTPS). \nIf a user id and password is required to access a remote site, these can be given as \nhttps://userid:password@www.secret-site.com/...\nIf dest is a character array, the result will be treated as raw binary data and the return value reflects the number of bytes stored in the character array. \nIf dest is a string array, the result will be treated as text data (one line per array member) and the return value will be the number of lines stored in the string array. Newline characters will be stripped. \nIf dest is a string, the result will be stored in that string and the return value will be the length of the string. Note that in case of binary data the result is truncated at the first occurrence of a byte with the value 0x00. \nIf you need to use a proxy to access the Internet with HTTP or HTTPS, you can set that up in the \"Configure\" dialog under \"Help/Check for Update\" in the Control Panel. \nIf you should face problems related to SSL connections (HTTPS) consider the note in netget. "
+        }, {
+            "syntax": "netpost(dest, string url, string data, int timeout)",
+            "returntype": "int",
+            "returns": "returns the number of objects read from the network.\nThe actual meaning of the return value depends on the type of dest.\nIn case of an error, a negative value is returned and neterror() may be called to display an error message to the user. ",
+            "description": "The netpost function sends the given data to the given url on the network and stores the result in the dest variable.\nIf no network activity has occurred for timeout seconds, the connection will be terminated. The default timeout is 20 seconds.\nIf content_type is given, it overwrites the default content type of \"text/html; charset=utf-8\".\nThe url must contain the protocol to use (HTTP or HTTPS). \nIf a user id and password is required to access a remote site, these can be given as \nhttps://userid:password@www.secret-site.com/...\nIf dest is a character array, the result will be treated as raw binary data and the return value reflects the number of bytes stored in the character array. \nIf dest is a string array, the result will be treated as text data (one line per array member) and the return value will be the number of lines stored in the string array. Newline characters will be stripped. \nIf dest is a string, the result will be stored in that string and the return value will be the length of the string. Note that in case of binary data the result is truncated at the first occurrence of a byte with the value 0x00. \nIf you need to use a proxy to access the Internet with HTTP or HTTPS, you can set that up in the \"Configure\" dialog under \"Help/Check for Update\" in the Control Panel. \nIf you should face problems related to SSL connections (HTTPS) consider the note in netget. "
+        }, {
+            "syntax": "netpost(dest, string url, string data, int timeout, string content_type)",
+            "returntype": "int",
+            "returns": "returns the number of objects read from the network.\nThe actual meaning of the return value depends on the type of dest.\nIn case of an error, a negative value is returned and neterror() may be called to display an error message to the user. ",
+            "description": "The netpost function sends the given data to the given url on the network and stores the result in the dest variable.\nIf no network activity has occurred for timeout seconds, the connection will be terminated. The default timeout is 20 seconds.\nIf content_type is given, it overwrites the default content type of \"text/html; charset=utf-8\".\nThe url must contain the protocol to use (HTTP or HTTPS). \nIf a user id and password is required to access a remote site, these can be given as \nhttps://userid:password@www.secret-site.com/...\nIf dest is a character array, the result will be treated as raw binary data and the return value reflects the number of bytes stored in the character array. \nIf dest is a string array, the result will be treated as text data (one line per array member) and the return value will be the number of lines stored in the string array. Newline characters will be stripped. \nIf dest is a string, the result will be stored in that string and the return value will be the length of the string. Note that in case of binary data the result is truncated at the first occurrence of a byte with the value 0x00. \nIf you need to use a proxy to access the Internet with HTTP or HTTPS, you can set that up in the \"Configure\" dialog under \"Help/Check for Update\" in the Control Panel. \nIf you should face problems related to SSL connections (HTTPS) consider the note in netget. "
+
+        }]
+    },
+    "palette": {
+        "variants": [{
+            "syntax": "palette(int index)",
+            "returntype": "int",
+            "returns": "returns an integer ARGB value in the form 0xaarrggbb, or the type of the currently used palette (depending on the value of index)",
+            "description": "The palette function returns the ARGB value of the color with the given index (which may be in the range 0..PALETTE_ENTRIES-1). If type is not given (or is -1) the palette assigned to the current editor window will be used. Otherwise type specifies which color palette to use (PALETTE_BLACK, PALETTE_WHITE or PALETTE_COLORED). \nThe special value -1 for index makes the function return the type of the palette that is currently in use by the editor window. \nIf either index or type is out of range, an error message will be given and the ULP will be terminated. "
+        }, {
+            "syntax": "palette(int index, int type)",
+            "returntype": "int",
+            "returns": "returns an integer ARGB value in the form 0xaarrggbb, or the type of the currently used palette (depending on the value of index)",
+            "description": "The palette function returns the ARGB value of the color with the given index (which may be in the range 0..PALETTE_ENTRIES-1). If type is not given (or is -1) the palette assigned to the current editor window will be used. Otherwise type specifies which color palette to use (PALETTE_BLACK, PALETTE_WHITE or PALETTE_COLORED). \nThe special value -1 for index makes the function return the type of the palette that is currently in use by the editor window. \nIf either index or type is out of range, an error message will be given and the ULP will be terminated. "
+
+
+        }]
+    },
+    "pow": {
+        "variants": [{
+            "syntax": "pow(real x, real y)",
+            "returntype": "real",
+            "returns": "returns the value of x to the power of y",
+            "description": ""
+        }]
+    },
+    "printf": {
+        "variants": [{
+            "syntax": "printf(string format[, argument, ...])",
+            "returntype": "int",
+            "returns": "returns the number of characters written to the file that has been opened by the most recent output statement. \nIn case of an error, printf returns -1. ",
+            "description": "Format string\nThe format string controls how the arguments will be converted, formatted and printed. There must be exactly as many arguments as necessary for the format. The number and type of arguments will be checked against the format, and any mismatch will lead to an error message. \nThe format string contains two types of objects - plain characters and format specifiers: \nPlain characters are simply copied verbatim to the output \nFormat specifiers fetch arguments from the argument list and apply formatting to them \nFormat specifiers\nA format specifier has the following form: \n% [flags] [width] [.prec] type \nEach format specification begins with the percent character (%). After the % comes the following, in this order: \nan optional sequence of flag characters, [flags] \nan optional width specifier, [width] \nan optional precision specifier, [.prec] \nthe conversion type character, type \nConversion type characters\nd \n\nsigned decimal int\no \n\nunsigned octal int\nu \n\nunsigned decimal int\nx \n\nunsigned hexadecimal int (with a, b,...)\nX \n\nunsigned hexadecimal int (with A, B,...)\nf \n\nsigned real value of the form [-]dddd.dddd\ne \n\nsigned real value of the form [-]d.dddde[±]ddd\nE \n\nsame as e, but with E for exponent\ng \n\nsigned real value in either e or f form, based on given value and precision\nG \n\nsame as g, but with E for exponent if e format used\nc \n\nsingle character\ns \n\ncharacter string\n% \n\nthe % character is printed\n\nFlag characters\nThe following flag characters can appear in any order and combination. \n\n\"-\" \n\nthe formatted item is left-justified within the field; normally, items are right-justified\n\"+\" \n\na signed, positive item will always start with a plus character (+); normally, only negative items begin with a sign\n\" \" \n\na signed, positive item will always start with a space character; if both \"+\" and \" \" are specified, \"+\" overrides \" \"\n\nWidth specifiers\nThe width specifier sets the minimum field width for an output value. \nWidth is specified either directly, through a decimal digit string, or indirectly, through an asterisk (*). If you use an asterisk for the width specifier, the preceding argument (which must be an int) to the one being formatted (with this format specifier) determines the minimum output field width. \nIn no case does a nonexistent or small field width cause truncation of a field. If the result of a conversion is wider than the field width, the field is simply expanded to contain the conversion result. \n\nn \n\nAt least n characters are printed. If the output value has less than n characters, the output is padded with blanks (right-padded if \"-\" flag given, left-padded otherwise).\n0n \n\nAt least n characters are printed. If the output value has less than n characters, it is filled on the left with zeros.\n* \n\nThe argument list supplies the width specifier, which must precede the actual argument being formatted.\n\nPrecision specifiers\nA precision specifier always begins with a period (.) to separate it from any preceding width specifier. Then, like width, precision is specified either directly through a decimal digit string, or indirectly, through an asterisk (*). If you use an asterisk for the precision specifier, the preceding argument (which must be an int) to the one being formatted (with this format specifier) determines the precision. \n\nnone \n\nPrecision set to default.\n.0 \n\nFor int types, precision is set to default; for real types, no decimal point is printed.\n.n \n\nn characters or n decimal places are printed. If the output value has more than n characters the output might be truncated or rounded (depending on the type character).\n* \n\nThe argument list supplies the precision specifier, which must precede the actual argument being formatted.\n\nDefault precision values\ndouxX \n\n1\neEf \n\n6\ngG \n\nall significant digits\nc \n\nno effect\ns \n\nprint entire string\n\nHow precision specification (.n) affects conversion\ndouxX \n\n.n specifies that at least n characters are printed. If the input argument has less than n digits, the output value is left-padded with zeros. If the input argument has more than n digits, the output value is not truncated.\neEf \n\n.n specifies that n characters are printed after the decimal point, and the last digit printed is rounded.\ngG \n\n.n specifies that at most n significant digits are printed.\nc \n\n.n has no effect on the output.\ns \n\n.n specifies that no more than n characters are printed.\n\nBinary zero characters\nUnlike sprintf, the printf function can print binary zero characters (0x00). "
+        }]
+    },
+    "round": {
+        "variants": [{
+            "syntax": "round(real x)",
+            "returntype": "real",
+            "returns": "returns x rounded to the nearest integer",
+            "description": ""
+        }]
+    },
+    "setgroup": {
+        "variants": [{
+            "syntax": "setgroup(object)",
+            "returntype": "void",
+            "returns": "",
+            "description": "The setgroup() function sets the group flags of the given object, so that it becomes part of the group. \nIf no flags are given, the object is added to the group as a whole (i.e. all of its selection points, in case it has more than one). \nIf flags has a non-zero value, only the group flags of the given points of the object are set. For a UL_WIRE this means that '1' sets the group flag of the first point, '2' that of the second point, and '3' sets both. Any previously set group flags remain unchanged by a call to setgroup(). \nWhen applied to an object that contains other objects (like a UL_BOARD or UL_NET) the group flags of all contained objects are set recursively with following limitations:\nIt's not the case for UL_LIBRARY and UL_SCHEMATIC. Subordinate objects that are not selectable or not inidividually selectable are not flagged (e.g. UL_GRID or UL_VARIANT objects or wires of UL_TEXT or UL_FRAME objects). \nFor details on the object hierarchies see Object Types. "
+        }, {
+            "syntax": "setgroup(object, int flags)",
+            "returntype": "void",
+            "returns": "",
+            "description": "The setgroup() function sets the group flags of the given object, so that it becomes part of the group. \nIf no flags are given, the object is added to the group as a whole (i.e. all of its selection points, in case it has more than one). \nIf flags has a non-zero value, only the group flags of the given points of the object are set. For a UL_WIRE this means that '1' sets the group flag of the first point, '2' that of the second point, and '3' sets both. Any previously set group flags remain unchanged by a call to setgroup(). \nWhen applied to an object that contains other objects (like a UL_BOARD or UL_NET) the group flags of all contained objects are set recursively with following limitations:\nIt's not the case for UL_LIBRARY and UL_SCHEMATIC. Subordinate objects that are not selectable or not inidividually selectable are not flagged (e.g. UL_GRID or UL_VARIANT objects or wires of UL_TEXT or UL_FRAME objects). \nFor details on the object hierarchies see Object Types. "
+
+
+        }]
+    },
+    "setvariant": {
+        "variants": [{
+            "syntax": "setvariant(string name)",
+            "returntype": "int",
+            "returns": "returns a non-zero value if the given assembly variant exists, zero otherwise.",
+            "description": "The setvariant() function sets the current assembly variant to the one given by name. This can be used to loop through all of the parts and \"see\" their data exactly as defined in the given variant. \nname must reference a valid assembly variant that is contained in the current drawing. \nThe assembly variant that has been set by a call to setvariant() is only active until the User Language Program returns. After that, the variant in the drawing will be the same as before the start of the ULP. \nSetting the assembly variant in a board is only possible if the consistent schematic is loaded."
+        }]
+    },
+    "sin": {
+        "variants": [{
+            "syntax": "sin(real x)",
+            "returntype": "real",
+            "returns": "returns the sine of x",
+            "description": "Angles are given in radian."
+        }]
+    },
+    "sleep": {
+        "variants": [{
+            "syntax": "sleep(int seconds)",
+            "returntype": "void",
+            "returns": "",
+            "description": "The sleep function delays the execution of an ULP program for number of seconds."
+        }]
+    },
+    "sort": {
+        "variants": [{
+            "syntax": "sort(int number, array1[, array2,...])",
+            "returntype": "void",
+            "returns": "",
+            "description": "The sort function either directly sorts a given array1, or it sorts a set of arrays (starting with array2), in which case array1 is supposed to be an array of int, which will be used as a pointer array. \nIn any case, the number argument defines the number of items in the array(s). \nSorting a single array\nIf the sort function is called with one single array, that array will be sorted directly, as in the following example: \nstring A[];\nint n = 0;\nA[n++] = \"World\";\nA[n++] = \"Hello\";\nA[n++] = \"The truth is out there...\";\nsort(n, A);\nfor (int i = 0; i < n; ++i)\n    printf(A[i]);\nSorting a set of arrays\nIf the sort function is called with more than one array, the first array must be an array of int, while all of the other arrays may be of any array type and hold the data to be sorted. The following example illustrates how the first array will be used as a pointer: \nnumeric string Nets[], Parts[], Instances[], Pins[];\nint n = 0;\nint index[];\nschematic(S) {\n  S.nets(N) N.pinrefs(P) {\n    Nets[n] = N.name;\n    Parts[n] = P.part.name;\n    Instances[n] = P.instance.name;\n    Pins[n] = P.pin.name;\n    ++n;\n    }\n  sort(n, index, Nets, Parts, Instances, Pins);\n  for (int i = 0; i < n; ++i)\n      printf(\"%-8s %-8s %-8s %-8s\\n\",\n             Nets[index[i]], Parts[index[i]],\n             Instances[index[i]], Pins[index[i]]);\n  }\nThe idea behind this is that one net can have several pins connected to it, and in a netlist you might want to have the net names sorted, and within one net you also want the part names sorted and so on. \nNote the use of the keyword numeric in the string arrays. This causes the strings to be sorted in a way that takes into account a numeric part at the end of the strings, which leads to IC1, IC2,... IC9, IC10 instead of the alphabetical order IC1, IC10, IC2,...IC9. \nWhen sorting a set of arrays, the first (index) array must be of type int and need not be initialized. Any contents the index array might have before calling the sort function will be overwritten by the resulting index values. "
+        }]
+    },
+    "sprintf": {
+        "variants": [{
+            "syntax": "sprintf(string result, string format[, argument, ...])",
+            "returntype": "int",
+            "returns": "returns the number of characters written into the result string. In case of an error, sprintf returns -1.",
+            "description": "Format string\nSee printf. \nBinary zero characters\nNote that sprintf can not return strings with embedded binary zero characters (0x00). If the resulting string contains a binary zero character, any characters following that zero character will be dropped. Use printf if you need to output binary data. "
+        }]
+    },
+    "sqrt": {
+        "variants": [{
+            "syntax": "sqrt(real x)",
+            "returntype": "real",
+            "returns": "returns the square root of x",
+            "description": ""
+        }]
+    },
+    "status": {
+        "variants": [{
+            "syntax": "status(string message)",
+            "returntype": "void",
+            "returns": "",
+            "description": "The status function displays the given message in the status bar of the editor window in which the ULP is running. "
+        }]
+    },
+    "strchr": {
+        "variants": [{
+            "syntax": "strchr(string s, char c)",
+            "returntype": "int",
+            "returns": "returns the integer offset of the character in the string, or -1 if the character does not occur in the string",
+            "description": "If index is given, the search starts at that position. Negative values are counted from the end of the string."
+        }, {
+            "syntax": "strchr(string s, char c, int index)",
+            "returntype": "",
+            "returns": "",
+            "description": ""
+
+
+        }]
+    },
+    "strjoin": {
+        "variants": [{
+            "syntax": "strjoin(string array[], char separator)",
+            "returntype": "string",
+            "returns": "returns the combined entries of array",
+            "description": "strjoin joins all entries in array, delimited by the given separator and returns the resulting string. \nIf separator is the newline character ('\\n') the resulting string will be terminated with a newline character. This is done to have a text file that consists of N lines (each of which is terminated with a newline) and is read in with the fileread() function and split into an array of N strings to be joined to the original string as read from the file."
+        }]
+    },
+    "strlen": {
+        "variants": [{
+            "syntax": "strlen(string s)",
+            "returntype": "int",
+            "returns": "returns the number of characters in the string.",
+            "description": ""
+        }]
+    },
+    "strlwr": {
+        "variants": [{
+            "syntax": "strlwr(string s)",
+            "returntype": "string",
+            "returns": "returns the modified string. The original string (given as parameter) is not changed",
+            "description": ""
+        }]
+    },
+    "strrchr": {
+        "variants": [{
+            "syntax": "strrchr(string s, char c)",
+            "returntype": "int",
+            "returns": "returns the integer offset of the character in the string, or -1 if the character does not occur in the string.",
+            "description": "If index is given, the search starts at that position. Negative values are counted from the end of the string. "
+        }, {
+            "syntax": "strrchr(string s, char c, int index)",
+            "returntype": "int",
+            "returns": "returns the integer offset of the character in the string, or -1 if the character does not occur in the string.",
+            "description": "If index is given, the search starts at that position. Negative values are counted from the end of the string. "
+
+
+        }]
+    },
+    "strrstr": {
+        "variants": [{
+            "syntax": "strrchr(string s, char c)",
+            "returntype": "int",
+            "returns": "returns the integer offset of the character in the string, or -1 if the character does not occur in the string",
+            "description": "If index is given, the search starts at that position. Negative values are counted from the end of the string."
+        }, {
+            "syntax": "strrchr(string s, char c, int index)",
+            "returntype": "int",
+            "returns": "returns the integer offset of the character in the string, or -1 if the character does not occur in the string",
+            "description": "If index is given, the search starts at that position. Negative values are counted from the end of the string."
+
+
+        }]
+    },
+    "strsplit": {
+        "variants": [{
+            "syntax": "strsplit(string &array[], string s, char separator)",
+            "returntype": "int",
+            "returns": "returns the number of entries copied into array",
+            "description": "strsplit splits the string s at the given separator and stores the resulting fields in the array. \nIf separator is the newline character ('\\n') the last field will be silently dropped if it is empty. This is done to have a text file that consists of N lines (each of which is terminated with a newline) and is read in with the fileread() function to be split into an array of N strings. With any other separator an empty field at the end of the string will count, so \"a:b:c:\" will result in 4 fields, the last of which is empty. "
+        }]
+    },
+    "strstr": {
+        "variants": [{
+            "syntax": "strstr(string s1, string s2)",
+            "returntype": "int",
+            "returns": "returns the integer offset of the first character of s2 in s1, or -1 if the substring does not occur in the string",
+            "description": "If index is given, the search starts at that position. Negative values are counted from the end of the string. "
+        }, {
+            "syntax": "strstr(string s1, string s2, int index)",
+            "returntype": "int",
+            "returns": "returns the integer offset of the first character of s2 in s1, or -1 if the substring does not occur in the string",
+            "description": "If index is given, the search starts at that position. Negative values are counted from the end of the string. "
+
+
+        }]
+    },
+    "strsub": {
+        "variants": [{
+            "syntax": "strsub(string s, int start)",
+            "returntype": "string",
+            "returns": "returns the substring indicated by the start and length value",
+            "description": "The value for length must be positive, otherwise an empty string will be returned. If length is ommitted, the rest of the string (beginning at start) is returned. \nIf start points to a position outside the string, an empty string is returned."
+        }, {
+            "syntax": "strsub(string s, int start, int length)",
+            "returntype": "",
+            "returns": "",
+            "description": ""
+
+
+        }]
+    },
+    "strtod": {
+        "variants": [{
+            "syntax": "strtod(string s)",
+            "returntype": "real",
+            "returns": "returns the numerical representation of the given string as a real value. Conversion ends at the first character that does not fit into the format of a real constant. If an error occurs during conversion of the string 0.0 will be returned",
+            "description": ""
+        }]
+    },
+    "strtol": {
+        "variants": [{
+            "syntax": "strtol(string s)",
+            "returntype": "int",
+            "returns": "returns the numerical representation of the given string as an int value. Conversion ends at the first character that does not fit into the format of an integer constant. If an error occurs during conversion of the string 0 will be returned",
+            "description": ""
+        }]
+    },
+    "strupr": {
+        "variants": [{
+            "syntax": "strupr(string s)",
+            "returntype": "string",
+            "returns": "returns the modified string. The original string (given as parameter) is not changed",
+            "description": ""
+        }]
+    },
+    "strxstr": {
+        "variants": [{
+            "syntax": "strxstr(string s1, string s2)",
+            "returntype": "int",
+            "returns": "returns the integer offset of the substring in s1 that matches the regular expression in s2, or -1 if the regular expression does not match in the string",
+            "description": "If index is given, the search starts at that position. Negative values are counted from the end of the string. \nIf length is given, the actual length of the matching substring is returned in that variable. \nRegular expressions allow you to find a pattern within a text string. For instance, the regular expression \"i.*a\" would find a sequence of characters that starts with an 'i', followed by any character ('.') any number of times ('*'), and ends with an 'a'. It would match on \"is a\" as well as \"is this a\" or \"ia\".\nDetails on regular expressions can be found, for instance, in the book Mastering Regular Expressions by Jeffrey E. F. Friedl. "
+        }, {
+            "syntax": "strxstr(string s1, string s2, int index)",
+            "returntype": "int",
+            "returns": "returns the integer offset of the substring in s1 that matches the regular expression in s2, or -1 if the regular expression does not match in the string",
+            "description": "If index is given, the search starts at that position. Negative values are counted from the end of the string. \nIf length is given, the actual length of the matching substring is returned in that variable. \nRegular expressions allow you to find a pattern within a text string. For instance, the regular expression \"i.*a\" would find a sequence of characters that starts with an 'i', followed by any character ('.') any number of times ('*'), and ends with an 'a'. It would match on \"is a\" as well as \"is this a\" or \"ia\".\nDetails on regular expressions can be found, for instance, in the book Mastering Regular Expressions by Jeffrey E. F. Friedl. "
+        }, {
+            "syntax": "strxstr(string s1, string s2, int index, int length)",
+            "returntype": "int",
+            "returns": "returns the integer offset of the substring in s1 that matches the regular expression in s2, or -1 if the regular expression does not match in the string",
+            "description": "If index is given, the search starts at that position. Negative values are counted from the end of the string. \nIf length is given, the actual length of the matching substring is returned in that variable. \nRegular expressions allow you to find a pattern within a text string. For instance, the regular expression \"i.*a\" would find a sequence of characters that starts with an 'i', followed by any character ('.') any number of times ('*'), and ends with an 'a'. It would match on \"is a\" as well as \"is this a\" or \"ia\".\nDetails on regular expressions can be found, for instance, in the book Mastering Regular Expressions by Jeffrey E. F. Friedl. "
+
+        }]
+    },
+    "system": {
+        "variants": [{
+            "syntax": "system(string command)",
+            "returntype": "int",
+            "returns": "returns the exit status of the command. This is typically 0 if everything was ok, and non-zero in case of an error",
+            "description": "The system function executes the external program given by the command string, and waits until the program ends. \nInput/Output redirection\nIf the external program shall read its standard input from (or write its standard output to) a particular file, input/output needs to be redirected. \n\n?\n?\nOn Linux and Mac OS X this is done by simply adding a '<' or '>' to the command line, followed by the desired file name, as in \nsystem(\"program < infile > outfile\");\nwhich runs program and makes it read from infile and write to outfile. \n\n\n?\nOn Windows you have to explicitly run a command processor to do this, as in \nsystem(\"cmd.exe /c program < infile > outfile\");\n(on DOS based Windows systems use command.com instead of cmd.exe). \n\nBackground execution\nThe system function waits until the given program has ended. This is useful for programs that only run for a few seconds, or completely take over the user's attention. \n\n?\n?\nIf an external program runs for a longer time, and you want the system call to return immediately, without waiting for the program to end, you can simply add an '&' to the command string under Linux and Mac OS X, as in \nsystem(\"program &\");\n\n\n?\nUnder Windows you need to explicitly run a command processor to do this, as in \nsystem(\"cmd.exe /c start program\");\n(on DOS based Windows systems use command.com instead of cmd.exe). \n"
+        }]
+    },
+    "t2day": {
+        "variants": [{
+            "syntax": "t2day(int t)",
+            "returntype": "int",
+            "returns": "returns the day of the month (1..31)",
+            "description": ""
+        }]
+    },
+    "t2dayofweek": {
+        "variants": [{
+            "syntax": "t2dayofweek(int t)",
+            "returntype": "int",
+            "returns": "returns the day of the week (0=sunday..6)",
+            "description": ""
+        }]
+    },
+    "t2hour": {
+        "variants": [{
+            "syntax": "t2hour(int t)",
+            "returntype": "int",
+            "returns": "returns the hour (0..23)",
+            "description": ""
+        }]
+    },
+    "t2minute": {
+        "variants": [{
+            "syntax": "t2minute(int t)",
+            "returntype": "int",
+            "returns": "returns the minute (0..59)",
+            "description": ""
+        }]
+    },
+    "t2month": {
+        "variants": [{
+            "syntax": "t2month(int t)",
+            "returntype": "int",
+            "returns": "returns the month (0..11)",
+            "description": ""
+        }]
+    },
+    "t2second": {
+        "variants": [{
+            "syntax": "t2second(int t)",
+            "returntype": "int",
+            "returns": "returns the second (0..59)",
+            "description": ""
+        }]
+    },
+    "t2string": {
+        "variants": [{
+            "syntax": "t2string(int time, string format)",
+            "returntype": "string",
+            "returns": "returns a formatted string containing date and time",
+            "description": "The t2string function without the optional format parameter converts the given time t into a country specific string in local time. \nIf t2string is called with a format string, that format is used to determine what the result should look like. \nThe following expressions can be used in a format string: \n\nd\n\nthe day as a number without a leading zero (1 to 31)\ndd\n\nthe day as a number with a leading zero (01 to 31)\nddd\n\nthe abbreviated localized day name (e.g. \"Mon\" to \"Sun\")\ndddd\n\nthe long localized day name (e.g. \"Monday\" to \"Sunday\")\nM\n\nthe month as a number without a leading zero (1-12)\nMM\n\nthe month as a number with a leading zero (01-12)\nMMM\n\nthe abbreviated localized month name (e.g. \"Jan\" to \"Dec\")\nMMMM\n\nthe long localized month name (e.g. \"January\" to \"December\")\nyy\n\nthe year as a two digit number (00-99)\nyyyy\n\nthe year as a four digit number\nh\n\nthe hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display)\nhh\n\nthe hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)\nm\n\nthe minute without a leading zero (0 to 59)\nmm\n\nthe minute with a leading zero (00 to 59)\ns\n\nthe second without a leading zero (0 to 59)\nss\n\nthe second with a leading zero (00 to 59)\nz\n\nthe milliseconds without leading zeros (always 0, since the given time only has a one second resolution)\nzzz\n\nthe milliseconds with leading zeros (always 000, since the given time only has a one second resolution)\nAP\n\nuse AM/PM display (AP will be replaced by either \"AM\" or \"PM\")\nap\n\nuse am/pm display (ap will be replaced by either \"am\" or \"pm\")\nU\n\ndisplay the given time as UTC (must be the first character; default is local time)\n\nAll other characters will be copied \"as is\". Any sequence of characters that are enclosed in singlequotes will be treated as text and not be used as an expression. Two consecutive single quotes ('') are replaced by a single quote in the output. "
+        }]
+    },
+    "t2year": {
+        "variants": [{
+            "syntax": "t2year(int t)",
+            "returntype": "int",
+            "returns": "returns the year (including century!)",
+            "description": ""
+        }]
+    },
+    "tan": {
+        "variants": [{
+            "syntax": "tan(real x)",
+            "returntype": "real",
+            "returns": "returns the tangent of x",
+            "description": "Angles are given in radian."
+        }]
+    },
+    "time": {
+        "variants": [{
+            "syntax": "time(void)",
+            "returntype": "int",
+            "returns": "returns the current system time as the number of seconds elapsed since a system dependent reference date",
+            "description": ""
+        }]
+    },
+    "tolower": {
+        "variants": [{
+            "syntax": "tolower(char c)",
+            "returntype": "char",
+            "returns": "returns the converted character if c is uppercase. All other characters are returned unchanged",
+            "description": ""
+        }]
+    },
+    "toupper": {
+        "variants": [{
+            "syntax": "toupper(char c)",
+            "returntype": "char",
+            "returns": "returns the converted character if c is lowercase. All other characters are returned unchanged",
+            "description": ""
+        }]
+    },
+    "trunc": {
+        "variants": [{
+            "syntax": "trunc(real x)",
+            "returntype": "real",
+            "returns": "returns the integer part of x",
+            "description": ""
+        }]
+    },
+    "u2inch": {
+        "variants": [{
+            "syntax": "u2inch(int n)",
+            "returntype": "real",
+            "returns": "returns the value of n in inch",
+            "description": "EAGLE stores all coordinate and size values as int values with a resolution of 1/320000mm (0.003125µ). The above unit conversion functions can be used to convert these internal units to the desired measurement units, and vice versa."
+        }]
+    },
+    "u2mic": {
+        "variants": [{
+            "syntax": "u2mic(int n)",
+            "returntype": "real",
+            "returns": "returns the value of n in microns (1/1000mm)",
+            "description": ""
+        }]
+    },
+    "u2mil": {
+        "variants": [{
+            "syntax": "u2mil(int n)",
+            "returntype": "real",
+            "returns": "returns the value of n in mil (1/1000inch)",
+            "description": ""
+        }]
+    },
+    "u2mm": {
+        "variants": [{
+            "syntax": "u2mm(int n)",
+            "returntype": "real",
+            "returns": "returns the value of n in millimeters",
+            "description": ""
+        }]
+    },
+    "variant": {
+        "variants": [{
+            "syntax": "variant(void)",
+            "returntype": "string",
+            "returns": "returns the name of the current assembly variant. If no variant is currently selected, the empty string ('') is returned",
+            "description": ""
+        }]
+    },
+    "xmlattribute": {
+        "variants": [{
+            "syntax": "xmlattribute(string xml, string tag, string attribute)",
+            "returntype": "string",
+            "returns": "returns the value of the given attribute from the given tag within the given xml code. If an attribute appears more than once in the same tag, the value of its last occurrence is taken",
+            "description": "The tag is given in the form of a path. \nIf the given xml code contains an error, the result of any XML function is empty, and a warning dialog is presented to the user, giving information about where in the ULP and XML code the error occurred. Note that the line and column number within the XML code refers to the actual string given to this function as the xml parameter. "
+        }]
+    },
+    "xmlattributes": {
+        "variants": [{
+            "syntax": "xmlattributes(string &array[], string xml, string tag)",
+            "returntype": "int",
+            "returns": "returns the number of attributes found",
+            "description": "The xmlattributes function stores the names of all attributes from the given tag within the given xml code in the array.The order is not necessarily the same like in the given xml code. If an attribute appears more than once in the same tag, its name appears only once in the array. The tag is given in the form of a path. \nIf the given xml code contains an error, the result of any XML function is empty, and a warning dialog is presented to the user, giving information about where in the ULP and XML code the error occurred. Note that the line and column number within the XML code refers to the actual string given to this function as the xml parameter. "
+        }]
+    },
+    "xmlelement": {
+        "variants": [{
+            "syntax": "xmlelement(string xml, string tag)",
+            "returntype": "string",
+            "returns": "returns the complete XML element of the given tag within the given xml code. The result still contains the element's outer XML tag, and can thus be used for further processing with the other XML functions",
+            "description": "Any whitespace within plain text parts of the element is retained. The overall formatting of the XML tags within the element and the order of element attributes may be different than the original xml code, though.\nIf there is more than one occurrence of tag within xml, the first one will be returned. Use xmlelements if you want to get all occurrences. The tag is given in the form of a path. \nIf the given xml code contains an error, the result of any XML function is empty, and a warning dialog is presented to the user, giving information about where in the ULP and XML code the error occurred. Note that the line and column number within the XML code refers to the actual string given to this function as the xml parameter. "
+        }]
+    },
+    "xmlelements": {
+        "variants": [{
+            "syntax": "xmlelements(string &array[], string xml, string tag)",
+            "returntype": "int",
+            "returns": "returns all occurrences of elements with the given tag. The return value is the number of elements stored in the array",
+            "description": "The tag is given in the form of a path. \nIf the given xml code contains an error, the result of any XML function is empty, and a warning dialog is presented to the user, giving information about where in the ULP and XML code the error occurred. Note that the line and column number within the XML code refers to the actual string given to this function as the xml parameter. "
+        }]
+    },
+    "xmltags": {
+        "variants": [{
+            "syntax": "xmltags(string array[], string xml, string tag)",
+            "returntype": "int",
+            "returns": "returns the names of all the tags on the top level of the given tag within the given xml code. The return value is the number of tag names stored in the array.",
+            "description": "Each tag name is returned only once, even if it appears several times in the XML code. \nThe tag is given in the form of a path. \nIf the given xml code contains an error, the result of any XML function is empty, and a warning dialog is presented to the user, giving information about where in the ULP and XML code the error occurred. Note that the line and column number within the XML code refers to the actual string given to this function as the xml parameter. \n"
+        }]
+    },
+    "xmltext": {
+        "variants": [{
+            "syntax": "xmltext(string xml, string tag)",
+            "returntype": "string",
+            "returns": "returns the textual data from the given tag within the given xml code",
+            "description": "Any tags within the text are stripped, whitespace (including newline characters) is retained. \nThe tag is given in the form of a path. \nIf the given xml code contains an error, the result of any XML function is empty, and a warning dialog is presented to the user, giving information about where in the ULP and XML code the error occurred. Note that the line and column number within the XML code refers to the actual string given to this function as the xml parameter. \n"
+        }]
+    },
+    "dlgCell": {
+        "variants": [{
+            "syntax": "dlgCell(int row, int column)",
+            "returntype": "",
+            "returns": "",
+            "description": "The dlgCell statement defines the location of a cell within a grid layout context. \nThe row and column indexes start at 0, so the upper left cell has the index (0, 0). \nWith two parameters the dialog object defined by statement will be placed in the single cell addresses by row and column. With four parameters the dialog object will span over all cells from row/column to row2/column2.\nBy default a dlgCell contains a dlgHBoxLayout, so if the cell contains more than one dialog object, they will be placed next to each other horizontally. "
+        },
+        {
+            "syntax": "dlgCell(int row, int column, int row2, int column2)",
+            "returntype": "",
+            "returns": "",
+            "description": "The dlgCell statement defines the location of a cell within a grid layout context. \nThe row and column indexes start at 0, so the upper left cell has the index (0, 0). \nWith two parameters the dialog object defined by statement will be placed in the single cell addresses by row and column. With four parameters the dialog object will span over all cells from row/column to row2/column2.\nBy default a dlgCell contains a dlgHBoxLayout, so if the cell contains more than one dialog object, they will be placed next to each other horizontally. "
+        }]
+    }
+
+}
